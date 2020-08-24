@@ -18,13 +18,14 @@ class Matrix:
                 result[i][j] = scalar * matrix[i][j]
         return result
     
-    #multiplication & addition of 2 matrices
+    ##multiplication & addition of 2 matrices
     def matrix_arithmetic(self,A,B, operator):
+        rows_A = len(A)
+        columns_A = len(A[0])
+        rows_B = len(B)
+        columns_B = len(B[0])
+        
         if operator == '*':
-            rows_A = len(A)
-            columns_A = len(A[0])
-            rows_B = len(B)
-            columns_B = len(B[0])
             if (columns_A != rows_B): #check first if multiplication is possible
                 raise ArithmeticError('Invalid dimensions, can not do multiplication')
             else:
@@ -35,6 +36,16 @@ class Matrix:
                         for k in range(columns_A):
                             temp = temp + A[i][k] * B[k][j]
                         result[i][j] = temp
+            return result
+        
+        elif operator == '+':
+            if (rows_A != rows_B or columns_A != columns_B):
+                raise ArithmeticError('matrices do not have equal dimension, can not do addition')
+            else:
+                result = [[0 for i in range(columns_A)] for j in range(rows_A)]
+                for i in range(rows_A):
+                    for j in range(columns_A):
+                        result[i][j] = A[i][j] + B[i][j]
             return result
     
     #function to find the transpose of matrix m
