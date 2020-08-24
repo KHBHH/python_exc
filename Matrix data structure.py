@@ -17,3 +17,12 @@ class Matrix:
             for j in range(dim_col):
                 trans_M[j][i]= m[i][j]
         return trans_M
+    
+    def trace(self, m):
+        summation = 0
+        j=0
+        for i in range(len(m)):
+            temp = m[i][j]
+            summation = temp + summation
+            j = j+1
+        return summation
