@@ -18,23 +18,24 @@ class Matrix:
                 result[i][j] = scalar * matrix[i][j]
         return result
     
-    #multiplication of 2 matrices
-    def matrix_mult(self,A,B):
-        rows_A = len(A)
-        columns_A = len(A[0])
-        rows_B = len(B)
-        columns_B = len(B[0])
-        if (columns_A != rows_B):   #check first if multiplication is possible
-            raise ArithmeticError('Invalid dimensions, can not do multiplication')
-        else:
-            result = [[0 for i in range(columns_B)] for j in range(rows_A)]
-            for i in range(rows_A):
-                for j in range(columns_B):
-                    temp = 0
-                    for k in range(columns_A):
-                        temp = temp + A[i][k] * B[k][j]
-                    result[i][j] = temp
-        return result
+    #multiplication & addition of 2 matrices
+    def matrix_arithmetic(self,A,B, operator):
+        if operator == '*':
+            rows_A = len(A)
+            columns_A = len(A[0])
+            rows_B = len(B)
+            columns_B = len(B[0])
+            if (columns_A != rows_B): #check first if multiplication is possible
+                raise ArithmeticError('Invalid dimensions, can not do multiplication')
+            else:
+                result = [[0 for i in range(columns_B)] for j in range(rows_A)]
+                for i in range(rows_A):
+                    for j in range(columns_B):
+                        temp = 0
+                        for k in range(columns_A):
+                            temp = temp + A[i][k] * B[k][j]
+                        result[i][j] = temp
+            return result
     
     #function to find the transpose of matrix m
     def transpose(self, m):
