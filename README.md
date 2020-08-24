@@ -1,2 +1,2 @@
 # python_exc
-the list will be an input from the user
+the entries of the matrix will be an input from the user
