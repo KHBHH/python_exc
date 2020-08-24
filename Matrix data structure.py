@@ -17,12 +17,13 @@ class Matrix:
         return result
     
     #multiplication of 2 matrices
-    def matrix_mult(A,B):
-    rows_A = len(A)
-    columns_A = len(A[0])
-    rows_B = len(B)
-    columns_B = len(B[0])
-        if (columns_A != rows_B):        #check first if multiplication is possible
+    def matrix_mult(self,A,B):
+    #check first if multiplication is possible
+        rows_A = len(A)
+        columns_A = len(A[0])
+        rows_B = len(B)
+        columns_B = len(B[0])
+        if (columns_A != rows_B):
             raise ArithmeticError('Invalid dimensions, can not do multiplication')
         else:
             result = [[0 for i in range(columns_B)] for j in range(rows_A)]
