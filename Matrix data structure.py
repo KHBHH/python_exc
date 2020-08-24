@@ -1,6 +1,6 @@
 class Matrix:
     
-    #function to create matrix of size rowNum x colNum
+    ####function to create matrix of size rowNum x colNum
     def matrix(self,rowNum, colNum):
         mtrx = []
         for i in range(rowNum):           
@@ -10,7 +10,7 @@ class Matrix:
             mtrx.append(rowline) 
         return mtrx
     
-    #function to multiply matrix by scalar
+    ####function to multiply matrix by scalar
     def scal_mult(self,matrix, scalar):
         result = matrix
         for i in range(len(matrix)):
@@ -18,7 +18,7 @@ class Matrix:
                 result[i][j] = scalar * matrix[i][j]
         return result
     
-    ##multiplication & addition of 2 matrices
+    ####multiplication & addition of 2 matrices
     def matrix_arithmetic(self,A,B, operator):
         rows_A = len(A)
         columns_A = len(A[0])
@@ -48,7 +48,7 @@ class Matrix:
                         result[i][j] = A[i][j] + B[i][j]
             return result
     
-    #function to find the transpose of matrix m
+    ####function to find the transpose of matrix m
     def transpose(self, m):
         dim_row = len(m)
         dim_col = len(m[0])
@@ -58,7 +58,7 @@ class Matrix:
                 trans_M[j][i]= m[i][j]
         return trans_M
     
-    #function to get the sum of diagonals of matrix m
+    ####function to get the sum of diagonals of matrix m
     def trace(self, m):
         summation = 0
         j=0
@@ -67,3 +67,9 @@ class Matrix:
             summation = temp + summation
             j = j+1
         return summation
+    
+    ####function to find the determinant of matrix m
+    
+    
+    
+    ###function to get the inverse of matrix m
