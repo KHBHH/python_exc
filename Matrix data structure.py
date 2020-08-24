@@ -1,6 +1,5 @@
 class Matrix:
     
-    #creating matrix of size rowNum * colNum
     def matrix(self,rowNum, colNum):
         mtrx = []
         for i in range(rowNum):           
@@ -10,7 +9,6 @@ class Matrix:
             mtrx.append(rowline) 
         return mtrx
     
-    #multiplying matrix by scalar
     def scal_mult(self,matrix, scalar):
         result = matrix
         for i in range(len(matrix)):
@@ -18,7 +16,25 @@ class Matrix:
                 result[i][j] = scalar * matrix[i][j]
         return result
     
-    #transpose matrix m
+    #multiplication of 2 matrices
+    def matrix_mult(A,B):
+    #check first if multiplication is possible
+    rows_A = len(A)
+    columns_A = len(A[0])
+    rows_B = len(B)
+    columns_B = len(B[0])
+        if (columns_A != rows_B):
+            raise ArithmeticError('Invalid dimensions, can not do multiplication')
+        else:
+            result = [[0 for i in range(columns_B)] for j in range(rows_A)]
+            for i in range(rows_A):
+                for j in range(columns_B):
+                    temp = 0
+                    for k in range(columns_A):
+                        temp = temp + A[i][k] * B[k][j]
+                    result[i][j] = temp
+        return result
+    
     def transpose(self, m):
         dim_row = len(m)
         dim_col = len(m[0])
@@ -28,7 +44,6 @@ class Matrix:
                 trans_M[j][i]= m[i][j]
         return trans_M
     
-    #getting the sum of the diagonal of the matrix m
     def trace(self, m):
         summation = 0
         j=0
