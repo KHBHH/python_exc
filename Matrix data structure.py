@@ -1,6 +1,7 @@
 class Matrix:
     
     ####function to create matrix of size rowNum x colNum
+    #the entries of the matrix should be an input from the user
     def matrix(self,rowNum, colNum):
         mtrx = []
         for i in range(rowNum):           
